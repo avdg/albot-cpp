@@ -1,5 +1,5 @@
 # Start from ubuntu as start image
-FROM ubuntu:20.10
+FROM ubuntu:21.04
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     cmake \
@@ -20,6 +20,7 @@ COPY . .
 
 RUN cmake .
 RUN make .
+RUN cmake --build .
 
 # Define default start app
 CMD ["./albot-cpp"]
